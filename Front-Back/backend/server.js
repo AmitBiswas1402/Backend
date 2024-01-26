@@ -6,8 +6,8 @@ app.get('/', (req, res) => {
     res.send('Server is ready')
 })
 
-app.get('/api/tournaments', (req, res) => {
-    const tournaments = [
+app.get('/api/football', (req, res) => {
+    const football = [
         {
             country: 'Engalnd',
             league: 'Premier League',
@@ -32,8 +32,8 @@ app.get('/api/tournaments', (req, res) => {
         {
             country: 'Germany',
             league: 'Bundesliga',
-            domesticCup: 'DFB Pokal',
-            leagueCup : 'DFB-Ligapokal',
+            domesticCup: 'DFB-Pokal',
+            leagueCup : 'DFL-Ligapokal',
             superCup: 'DFL-Supercup'
         },
         {
@@ -44,7 +44,7 @@ app.get('/api/tournaments', (req, res) => {
             superCup: 'Trophée des Champions'
         },
     ]
-    res.send(tournaments)
+    res.send(football)
 })
 
 const port = process.env.PORT || 3000;

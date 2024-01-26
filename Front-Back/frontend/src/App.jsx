@@ -3,10 +3,10 @@ import axios from 'axios'
 import './App.css'
 
 function App() {
-  const [tournaments, setTournaments] = useState([])
+  const [football, setTournaments] = useState([])
 
   useEffect(()=>{
-    axios.get('http://localhost:3000/api/tournaments')
+    axios.get('/api/football')
     .then((response)=>{
       setTournaments(response.data)
     })
@@ -18,15 +18,18 @@ function App() {
   return (
     <>
     <h1>Full Stack</h1>
-    <p>Tournaments: {tournaments.length}</p>
+    <p>European Football Nations: {football.length}</p>
 
     {
-      tournaments.map((tournaments, country)=>{
-        <div key={tournaments.country}>
-          <h3>{tournaments.league}</h3>
-          <p>{tournaments.domesticCup}</p>
+      football.map((football, country)=>(
+        <div key={football.country}>
+          <h2>{football.country}</h2>
+          <p>{football.league}</p>
+          <p>{football.domesticCup}</p>
+          <p>{football.leagueCup}</p>
+          <p>{football.superCup}</p>
         </div>
-      })
+      ))
     }
 
     </>
